@@ -4,12 +4,17 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I’m a constant learner. I have interests on mostly anything! Technology, Psychology, Biology, Physics, Space/Aerospace, Economics, Philosophy, you name it.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+
+I’m doing tech things for a living. Currently working as a Site Reliability Engineer @airyrooms. AWS, Kubernetes, and Cloud Native technologies are my thing.
+
+I made this site to write down my thoughts and rants on anything.
+
+Regards, Yudi A Phanama
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[yudiandreanp@gmail.com](mailto:yudiandreanp@gmail.com)
