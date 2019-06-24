@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I’m a constant learner.
+A constant learner.
 I have interests on mostly anything!
 Technology, Psychology, Biology, Physics, Space/Aerospace, Economics, Philosophy, you name it.
 
