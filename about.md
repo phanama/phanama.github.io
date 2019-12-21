@@ -10,13 +10,10 @@ Technology, Psychology, Biology, Physics, Space/Aerospace, Economics, Philosophy
 
 ### More Information
 
+I’m doing tech things for a living. Currently working as an Infrastructure Engineer @xendit.
+AWS, Kubernetes, and Cloud Native technologies are my field.
 
-I’m doing tech things for a living. Currently working as a Site Reliability Engineer @airyrooms.
-AWS, Kubernetes, and Cloud Native technologies are my thing.
-
-I made this site to write down my thoughts and rants on anything.
-
-Regards, Yudi A Phanama
+I made this site to pour my thoughts and ponders into writing.
 
 ### Contact me
 
