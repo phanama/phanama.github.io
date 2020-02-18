@@ -5,15 +5,13 @@ permalink: /about/
 ---
 
 A constant learner.
-I have interests on mostly anything!
-Technology, Psychology, Biology, Physics, Space/Aerospace, Economics, Philosophy, you name it.
 
 ### More Information
 
-I’m doing tech things for a living. Currently working as an Infrastructure Engineer @xendit.
-AWS, Kubernetes, and Cloud Native technologies are my field.
+I’m doing tech things for a living. Currently as a System Engineer @gojek.
+AWS, Kubernetes, Python+Go, and Cloud Native technologies are my fields.
 
-I made this site to pour my thoughts and ponders into writing.
+I made this site to pour my thoughts and learnings into writing.
 
 ### Contact me
 
