@@ -1,3 +1,7 @@
 [submodule "themes/ezhil"]
 	path = themes/ezhil
 	url = git@github.com:phanama/ezhil
+[submodule "public"]
+	path = public
+	url = git@github.com:phanama/phanama.github.io.git
+	branch = master
