@@ -1,6 +1,6 @@
 ---
 title: "About"
-draft: true
+type: "page"
 ---
 
 A constant learner.
