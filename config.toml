@@ -1,4 +1,4 @@
-baseURL = "https://phanama.github.io"
+baseURL = "https://phanama.github.io/"
 title = "YPhanama's Notes"
 languageCode = "en-us"
 theme = "ezhil"
@@ -26,10 +26,9 @@ summaryLength = 20
     icon = "https://github.com/phanama/phanama.github.io/raw/master/images/Indonesiaball_with_kopiah.png"
     mode = "light" # "dark", "light", "auto"
 
-    customCSS = "css/custom.css"
     customDarkCSS = "css/custom-dark.css"
 
-    customJS = ["js/abc.js", "js/xyz.js", "https://code.jquery.com/jquery-3.4.1.js"]
+    customJS = ["https://code.jquery.com/jquery-3.4.1.js"]
 
 # Main menu which appears below site header.
 [[menu.main]]
