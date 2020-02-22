@@ -16,7 +16,7 @@ description: >
 - Why life?
   - No one knows.
   - To me, it's only a product of natural process. A product of probability.
-      - [Murphy's Law](https://en.wikipedia.org/wiki/Murphy%27s_law)
+      - [Murphy's Law](https://en.wikipedia.org/wiki/Murphy%27s_law).
         - Anything that can ~~go wrong~~ happen will ~~go wrong~~ happen.
   - It is accidental, but inevitable in the universe.
   - It just happen to "be", here in earth.
@@ -29,7 +29,7 @@ description: >
   - Here in this piece of rock (Earth), it might possibly start as early as [4.5 billion years ago](https://en.wikipedia.org/wiki/Earliest_known_life_forms).
   - Anywhere in the universe, it might have happened long ago, now, or in the future.
 - How do life happen?
-  - There are [many theories](https://www.livescience.com/13363-7-theories-origin-life.html)
+  - There are [many theories](https://www.livescience.com/13363-7-theories-origin-life.html).
   - For life to happen, it must have began [without life](https://en.wikipedia.org/wiki/Abiogenesis).
   - Personally I imagine life to begin when molecules of organic compounds accidentaly form a set of genetic codes that makes up a function, instructing it to survive, e.g. by copying itself and retain itself in the environment.
     - As those compounds copy, they also mutate, and add up in size of genetic code.
