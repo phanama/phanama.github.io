@@ -1,0 +1,70 @@
+baseURL = "https://phanama.github.io"
+title = "YPhanama's Notes"
+languageCode = "en-us"
+theme = "ezhil"
+disqusShortname = ""
+googleAnalytics = ""
+
+copyright = "© 2020 Yudi A Phanama - CC-BY-NC"
+
+pygmentsstyle = "solarized-dark"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+paginate = 999
+summaryLength = 20
+
+[params]
+    subtitle = "A Constant Learner"
+
+    mainSections = ["notes"]
+
+    # Content types which are excludes Disqus comments.
+    disableDisqusTypes = ["page"]
+    featherIconsCDN = false
+    favicon = "Indonesiaball_with_kopiah.png"
+    icon = "https://github.com/phanama/phanama.github.io/raw/master/images/Indonesiaball_with_kopiah.png"
+    mode = "light" # "dark", "light", "auto"
+
+    customCSS = "css/custom.css"
+    customDarkCSS = "css/custom-dark.css"
+
+    customJS = ["js/abc.js", "js/xyz.js", "https://code.jquery.com/jquery-3.4.1.js"]
+
+# Main menu which appears below site header.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All Notes"
+url = "/notes"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+# Social media links which shows up on site header.
+# Uses feather icons for icons. You can [search icon names from here](https://feathericons.com/).
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/phanama"
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/yphanama"
+
+# Enable tags.
+[taxonomies]
+   tag = "tags"
+

@@ -1,6 +1,5 @@
 ---
-layout: page
-title: Life
+title: "Life"
 ---
 
 - What's life?
