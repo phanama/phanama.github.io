@@ -1,5 +1,9 @@
 ---
+
 title: "Life"
+categories: ["biology", "philosophy"]
+tags: ["biology", "philosophy"]
+
 ---
 
 - What's life?
