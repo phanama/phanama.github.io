@@ -1,0 +1,4 @@
+---
+title: "kubectl"
+draft: true
+---

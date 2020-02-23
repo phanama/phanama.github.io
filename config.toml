@@ -4,6 +4,7 @@ languageCode = "en-us"
 theme = "ezhil"
 disqusShortname = ""
 googleAnalytics = ""
+lastmod = [":fileModTime", ":default"]
 
 copyright = "© 2020 Yudi A Phanama - CC-BY-SA 4.0 International"
 
@@ -13,6 +14,8 @@ pygmentscodefencesguesssyntax = true
 
 paginate = 999
 summaryLength = 20
+
+enableGitInfo = true
 
 [params]
     subtitle = "A Constant Learner"
@@ -42,14 +45,19 @@ url = "/notes"
 weight = 2
 
 [[menu.main]]
+name = "Tech Stuff"
+url = "/tech"
+weight = 3
+
+[[menu.main]]
 name = "About"
 url = "/about"
-weight = 3
+weight = 4
 
 [[menu.main]]
 name = "Categories"
 url = "/categories"
-weight = 4
+weight = 5
 
 # Social media links which shows up on site header.
 # Uses feather icons for icons. You can [search icon names from here](https://feathericons.com/).
