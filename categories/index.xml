@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on YPhanama&#39;s Notes</title>
-    <link>https://phanama.github.io/tags/</link>
-    <description>Recent content in Tags on YPhanama&#39;s Notes</description>
+    <title>Categories on YPhanama&#39;s Notes</title>
+    <link>https://phanama.github.io/categories/</link>
+    <description>Recent content in Categories on YPhanama&#39;s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2020 Yudi A Phanama - CC-BY-NC</copyright>
     
-	<atom:link href="https://phanama.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://phanama.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>biology</title>
-      <link>https://phanama.github.io/tags/biology/</link>
+      <link>https://phanama.github.io/categories/biology/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://phanama.github.io/tags/biology/</guid>
+      <guid>https://phanama.github.io/categories/biology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>philosophy</title>
-      <link>https://phanama.github.io/tags/philosophy/</link>
+      <link>https://phanama.github.io/categories/philosophy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://phanama.github.io/tags/philosophy/</guid>
+      <guid>https://phanama.github.io/categories/philosophy/</guid>
       <description></description>
     </item>
     
