@@ -5,7 +5,7 @@ theme = "ezhil"
 disqusShortname = ""
 googleAnalytics = ""
 
-copyright = "© 2020 Yudi A Phanama - CC-BY-NC"
+copyright = "© 2020 Yudi A Phanama - CC-BY-SA 4.0 International"
 
 pygmentsstyle = "solarized-dark"
 pygmentscodefences = true
@@ -22,8 +22,8 @@ summaryLength = 20
     # Content types which are excludes Disqus comments.
     disableDisqusTypes = ["page"]
     featherIconsCDN = false
-    favicon = "Indonesiaball_with_kopiah.png"
-    icon = "https://github.com/phanama/phanama.github.io/raw/master/images/Indonesiaball_with_kopiah.png"
+    favicon = "images/Indonesiaball_with_kopiah.png"
+    icon = "images/Indonesiaball_with_kopiah.png"
     mode = "light" # "dark", "light", "auto"
 
     customDarkCSS = "css/custom-dark.css"
