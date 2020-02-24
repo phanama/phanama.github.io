@@ -5,7 +5,6 @@ categories: ["earth", "environment"]
 tags: ["earth", "environment"]
 description: >
   I considered gradually reducing my own gsg emissions. Now I'm writing this to motivate myself.
-draft: true
 
 ---
 
@@ -17,7 +16,7 @@ Despite its name, [carbon footprint](https://web.archive.org/web/20200112055430/
 
 We can see it as an **accounting tool** to show **how much ecological impact** something (specifically human) **brings to the nature** through the GHG emission.
 
-## What causes carbon footprints?
+## What cause carbon footprints?
 
 _Anything we do, really._
 As a (living) individual, we already have it by default, either directly or indirectly. As we breathe we emit CO2; digesting our foods also produces methane as the byproduct; physical activities; eating beef (it _indirectly_ counts to our GHG emission, as the beef lived and emit GHGs to serve its purpose of being eaten by us); and even when we're still being concieved, what our mothers do to nourish us accounts to our own footprint.
@@ -67,7 +66,9 @@ They're somehow correlated.
 
 If we continue emitting GHG to the point that it's too hot for us to live in here, we might be doomed. Even before we reach such temperature, the rising sea is predicted to already bring impact by submerging coasts and lowlands, wreaking havoc on our world economy. (The latter is one of the biggest reasons the capitalists are starting to worry about temp rise).
 
-So, **_why does it matter?_** This Earth we live in is our home. We live together in this piece of space rock; Earth's a shared living space for us all, we share the same atmosphere. What we do here might indirectly affect the other folks (or.. species) on the other side of the Earth. What we emit here today will impact some generations somewhere in the future; or probably our generation afterall. We will cause the future to suffer.
+So, **_why does it matter?_** This Earth we live in is our home. We live together in this piece of space rock; Earth's a shared living space for us all, we share the same atmosphere. What we do here might indirectly affect the other folks (or.. species) on the other side of the Earth. What we emit here today will impact some generations somewhere in the future; or probably our generation afterall. It matters because the Earth is our beautiful home.
+
+_**"People must feel that the natural world is important and valuable and beautiful and wonderful and an amazement and a pleasure."** - Sir David Attenborough_
 
 We humans were just around for the last 300.000 years; we started drawing walls as early as [52.000 years ago](https://web.archive.org/web/20191228180916/https://www.nature.com/articles/s41586-018-0679-9); started writing [5250 years ago](https://web.archive.org/web/20191029162232/https://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199935413.001.0001/oxfordhb-9780199935413-e-61); and manufacturing stuff [200 years ago](https://web.archive.org/web/20200217005651/https://en.wikipedia.org/wiki/Industrial_Revolution). Compared to the [timescale of the life itself](https://web.archive.org/web/20200109005433/https://en.wikipedia.org/wiki/Timeline_of_human_evolution), we've just been around for [0.007% of the time](https://web.archive.org/web/20200207230239/https://www.youtube.com/watch?v=0yBzxC9eoog); and, out of stupidity, we're bringing disaster to this home of ours.
 Don't we all want our species to last long; and maybe, be a [higher civilization](https://web.archive.org/web/20200204181805/https://waitbutwhy.com/2014/05/fermi-paradox.html)? At least I do.
@@ -79,7 +80,7 @@ Humans are _stupid_, they make their own disaster"**
 
 ## Reducing carbon footprint
 
-To reduce carbon footprint, we can do many things. Changing our diet, using public transport, hesitate to use excess electricity, insulate our homes with more efficient ones so that we use less energy to heat ourselves during winter, conscious buying and consumption, prefer trains over planes, and [many](https://web.archive.org/web/20200130093517/https://en.wikipedia.org/wiki/Carbon_footprint#Ways_to_reduce_personal_carbon_footprint) many [more](https://web.archive.org/web/20200114221345/https://blogs.ei.columbia.edu/2018/12/27/35-ways-reduce-carbon-footprint/).
+To reduce carbon footprint, we can do many things. Changing our diet; using public transport; hesitate to use excess electricity; insulate our homes with more efficient ones so that we use less energy to heat ourselves during winter; conscious buying and consumption; prefer trains over planes; support environmental causes like what Sir David Attenborough, Greta, and [the others](https://en.wikipedia.org/wiki/Environmentalist) do; and [many](https://web.archive.org/web/20200130093517/https://en.wikipedia.org/wiki/Carbon_footprint#Ways_to_reduce_personal_carbon_footprint) many [more](https://web.archive.org/web/20200114221345/https://blogs.ei.columbia.edu/2018/12/27/35-ways-reduce-carbon-footprint/).
 
 ![](https://web.archive.org/web/20200224181004if_/https://ourworldindata.org/uploads/2020/02/Environmental-impact-of-food-by-life-cycle-stage.png)_GHG Emissions of various foods._
 
