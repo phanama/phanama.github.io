@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes on YPhanama&#39;s Notes</title>
-    <link>https://phanama.github.io/notes/</link>
-    <description>Recent content in Notes on YPhanama&#39;s Notes</description>
+    <title>environment on YPhanama&#39;s Notes</title>
+    <link>https://phanama.github.io/categories/environment/</link>
+    <description>Recent content in environment on YPhanama&#39;s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2020 Yudi A Phanama - CC-BY-SA 4.0 International</copyright>
     
-	<atom:link href="https://phanama.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://phanama.github.io/categories/environment/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://phanama.github.io/notes/carbon-footprint/</guid>
       <description>The recently famous young environmental activist, Greta Thunberg, has been campainging about reducing carbon footprints. She made headlines in the internet when taking train back home and sail boat accross the Atlantic instead of planes.</description>
-    </item>
-    
-    <item>
-      <title>Life</title>
-      <link>https://phanama.github.io/notes/life/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://phanama.github.io/notes/life/</guid>
-      <description>What&amp;rsquo;s life?  Combinations of natural atoms and molecules that somehow interact each other to form a set of functions to sustain themselves/keep themselves in the environment as long as possible.</description>
     </item>
     
   </channel>
