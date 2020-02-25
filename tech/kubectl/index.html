@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>kubectl - YPhanama&#39;s Notes</title><link rel="icon" type="image/png" href=https://phanama.github.io/images/Indonesiaball_with_kopiah.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="kubectl" />
+<meta property="og:description" content="All I&#39;ve learned about/from kubectl.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://phanama.github.io/tech/kubectl/" />
+<meta property="article:modified_time" content="2020-02-24T01:15:39+07:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="kubectl"/>
+<meta name="twitter:description" content="All I&#39;ve learned about/from kubectl.
+"/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://phanama.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://phanama.github.io/css/main.css" />
+
+	<script src="https://phanama.github.io/js/feather.min.js"></script>
+	
+	<script src="https://phanama.github.io/js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-142553815-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-142553815-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title">
+        <a href="https://phanama.github.io/"><div class="box"> 
+                <img src="https://phanama.github.io/images/Indonesiaball_with_kopiah.png" />
+            </div>YPhanama&#39;s Notes
+        </a>
+    </h1>
+	<div class="site-description"><h2>A Constant Learner</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/phanama" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/yphanama" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/notes">All Notes</a>
+			</li>
+			
+			<li>
+				<a href="/tech">Tech Stuff</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/categories">Categories</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+            <h1 class="title"><h1a>kubectl</h1a></h1>
+		</div>
+
+		<div class="markdown">
+			<p><em>This is a living document specially crafted for my personal use</em></p>
+<p>Go to <a href="#cheatsheet">cheatsheet</a></p>
+<h1 id="about-kubectl">About kubectl</h1>
+<p>Mental scratchpad:</p>
+<ul>
+<li>It is the CLI tool to interact with Kubernetes API server (apiserver).</li>
+<li>Basically, it is an interface for us to talk to the API server without needing to be fluent on the low level <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/">Kubernetes API</a>.</li>
+<li>It shims/translates the CLI language which is more human friendly compared to the Kubernetes (RESTful) API.
+<ul>
+<li>For example:
+<ul>
+<li>from <code>kubectl get pods -n default</code></li>
+<li>to roughly like <code>curl -XGET https://APISERVER_ADDRESS/api/v1/namespaces/default/pods -H &quot;Authorization: Bearer $TOKEN&quot;</code>
+<ul>
+<li>Although actually it&rsquo;s implementing another <a href="https://github.com/kubernetes/client-go">http client</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Because of that, it makes human operator&rsquo;s life much easier.</li>
+<li>It has many features and keeps evolving. The tool itself is maintained by the <a href="https://github.com/kubernetes/community/tree/master/sig-cli">Kubernetes SIG CLI</a>.</li>
+</ul>
+<p><em>Learning from <code>kubectl</code>, I see this pattern too on all the CLI tools that I&rsquo;ve seen/used. CLI is the human-friendly interface to the low level API behind a system. The API doesn&rsquo;t necessarily need to be HTTP/RESTful. For example, the <code>psql</code> tool speaks the <a href="https://www.postgresql.org/docs/10/protocol.html">PostgreSQL protocol</a> for us, translating the human-friendly commands to the protocol so we can talk to the postgres server.</em></p>
+<h1 id="cheatsheet">Cheatsheet</h1>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#586e75">#get all pods from all namespaces</span>
+kubectl get pods --all-namespaces
+
+<span style="color:#586e75">#drains a node</span>
+kubectl drain node NODE_NAME <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  --ignore-daemonsets --delete-local-data
+
+<span style="color:#586e75">#see the status of a deployment</span>
+kubectl rollout status deployment DEPLOYMENT_NAME
+
+<span style="color:#586e75">#rollback a deployment</span>
+kubectl rollout <span style="color:#b58900">history</span> deployment DEPLOYMENT_NAME
+kubectl rollout undo deployment <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  --to-revision<span style="color:#719e07">=</span>REVISION_NUMBER DEPLOYMENT_NAME
+
+<span style="color:#586e75">#user impersonation</span>
+kubectl get pod -n default <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  --as user@domain.com
+
+<span style="color:#586e75">#checking api access</span>
+kubectl auth can-i delete deployment <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  --namespace default
+<span style="color:#586e75">##no</span>
+
+<span style="color:#586e75">#reconcile all RBAC items</span>
+kubectl auth reconcile --recursive <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  --remove-extra-subjects <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  --remove-extra-permissions <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  -f PATH/TO/DIR/
+
+<span style="color:#586e75">#label nodes with kubernetes role label. e.g worker</span>
+kubectl label node NODE_NAME <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  node-role.kubernetes.io/worker<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;&#34;</span>
+<span style="color:#586e75">##this is my custom label, containing my own semantic.</span>
+<span style="color:#586e75">##It simply means the &#34;role&#34;</span>
+kubectl label node NODE_NAME <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  <span style="color:#268bd2">role</span><span style="color:#719e07">=</span><span style="color:#2aa198">&#34;worker&#34;</span>
+
+<span style="color:#586e75">#quickly make a node unschedulable</span>
+kubectl cordon NODE_NAME
+
+<span style="color:#586e75">#get by label</span>
+kubectl get pods -l <span style="color:#268bd2">key</span><span style="color:#719e07">=</span>value
+
+<span style="color:#586e75">#logs by label</span>
+kubectl logs -l <span style="color:#268bd2">key</span><span style="color:#719e07">=</span>value POD_NAME CONTAINER_NAME <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span>  --tail<span style="color:#719e07">=</span>N <span style="color:#586e75">#with tail</span>
+  --tail<span style="color:#719e07">=</span>N <span style="color:#586e75">#followwing</span>
+
+<span style="color:#586e75">#list all api resources</span>
+kubectl api-resources
+
+<span style="color:#586e75">#monitor resource usage</span>
+kubectl top nodes
+kubectl top pods
+</code></pre></div>
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+        <div><a href="https://phanama.github.io/LICENSE" type="text/html" rel="license">© 2020 Yudi A Phanama - CC-BY-SA 4.0 International</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on YPhanama&#39;s Notes</title>
+    <link>https://phanama.github.io/categories/kubernetes/</link>
+    <description>Recent content in kubernetes on YPhanama&#39;s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2020 Yudi A Phanama - CC-BY-SA 4.0 International</copyright>
+    
+	<atom:link href="https://phanama.github.io/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>kubectl</title>
+      <link>https://phanama.github.io/tech/kubectl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://phanama.github.io/tech/kubectl/</guid>
+      <description>This is a living document specially crafted for my personal use
+Go to cheatsheet
+About kubectl Mental scratchpad:
+ It is the CLI tool to interact with Kubernetes API server (apiserver).</description>
+    </item>
+    
+  </channel>
+</rss>
