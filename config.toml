@@ -6,7 +6,7 @@ disqusShortname = ""
 googleAnalytics = "UA-142553815-1"
 lastmod = [":fileModTime", ":default"]
 
-copyright = "© 2020 Yudi A Phanama - CC-BY-SA 4.0 International"
+copyright = "© 2020 Yudi A Phanama - CC-BY-SA 4.0"
 
 pygmentsstyle = "solarized-dark"
 pygmentscodefences = true
