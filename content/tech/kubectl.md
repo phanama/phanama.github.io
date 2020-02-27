@@ -13,7 +13,7 @@ Go to [cheatsheet](#cheatsheet)
 
 # About kubectl
 
-Mental scratchpad:
+Mental model:
 
 - It is the CLI tool to interact with Kubernetes API server (apiserver).
 - Basically, it is an interface for us to talk to the API server without needing to be fluent on the low level [Kubernetes API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/).
