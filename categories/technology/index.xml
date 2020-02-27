@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>ansible</title>
+      <link>https://phanama.github.io/tech/ansible/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://phanama.github.io/tech/ansible/</guid>
+      <description>This is a living document specially crafted for my personal use.
+Go to cheatsheet
+About Ansible Mental model:
+ A tool that scaffolds scripts containing commands to be executed against machine(s).</description>
+    </item>
+    
+    <item>
       <title>kubectl</title>
       <link>https://phanama.github.io/tech/kubectl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -19,7 +31,7 @@
       <guid>https://phanama.github.io/tech/kubectl/</guid>
       <description>This is a living document specially crafted for my personal use
 Go to cheatsheet
-About kubectl Mental scratchpad:
+About kubectl Mental model:
  It is the CLI tool to interact with Kubernetes API server (apiserver).</description>
     </item>
     

@@ -19,7 +19,7 @@
       <guid>https://phanama.github.io/tech/kubectl/</guid>
       <description>This is a living document specially crafted for my personal use
 Go to cheatsheet
-About kubectl Mental scratchpad:
+About kubectl Mental model:
  It is the CLI tool to interact with Kubernetes API server (apiserver).</description>
     </item>
     
