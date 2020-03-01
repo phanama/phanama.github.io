@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>kind - YPhanama&#39;s Notes</title><link rel="icon" type="image/png" href=https://phanama.github.io/images/Indonesiaball_with_kopiah.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="kind" />
+<meta property="og:description" content="Playing with Kubernetes in Docker.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://phanama.github.io/tech/kind/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="kind"/>
+<meta name="twitter:description" content="Playing with Kubernetes in Docker.
+"/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://phanama.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://phanama.github.io/css/main.css" />
+
+	<script src="https://phanama.github.io/js/feather.min.js"></script>
+	
+	<script src="https://phanama.github.io/js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-142553815-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-142553815-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title">
+        <a href="https://phanama.github.io/"><div class="box"> 
+                <img src="https://phanama.github.io/images/Indonesiaball_with_kopiah.png" />
+            </div>YPhanama&#39;s Notes
+        </a>
+    </h1>
+	<div class="site-description"><h2>A Constant Learner</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/phanama" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/yphanama" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/notes">All Notes</a>
+			</li>
+			
+			<li>
+				<a href="/tech">Tech Stuff</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/categories">Categories</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+            <h1 class="title"><h1a>kind</h1a></h1>
+		</div>
+
+		<div class="markdown">
+			<h1 id="playing-with-kind">Playing with kind</h1>
+<ul>
+<li><a href="https://github.com/kubernetes-sigs/kind">Kind</a> is an excellent tool to have Kubernetes running locally in the machine. It uses the local machine&rsquo;s Docker engine to create &ldquo;nodes&rdquo; within docker containers.</li>
+<li>Compared to <a href="https://github.com/kubernetes/minikube">Minikube</a>, Kind is much more lightweight.</li>
+<li>Kind supports multiple Nodes in the same local machine.</li>
+<li>It runs nested docker containers, so &ldquo;nodes&rdquo; are actual functional nodes without needing to spawn containers with the host&rsquo;s docker sock.</li>
+</ul>
+<p>Installing kind and bringing up a cluster is easy (taken from the docs):</p>
+<ol>
+<li>
+<p>Run:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.7.0/kind-<span style="color:#719e07">$(</span>uname<span style="color:#719e07">)</span>-amd64
+chmod +x ./kind
+mv ./kind /some-dir-in-your-PATH/kind
+</code></pre></div></li>
+<li>
+<p>Create a file kind_cluster.yaml:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#719e07">kind</span>: Cluster
+<span style="color:#719e07">apiVersion</span>: kind.x-k8s.io/v1alpha4
+<span style="color:#719e07">nodes</span>:
+- <span style="color:#719e07">role</span>: control-plane
+- <span style="color:#719e07">role</span>: control-plane
+- <span style="color:#719e07">role</span>: control-plane
+- <span style="color:#719e07">role</span>: worker
+- <span style="color:#719e07">role</span>: worker
+- <span style="color:#719e07">role</span>: worker
+</code></pre></div></li>
+<li>
+<p>Create the cluster:
+<code>kind create cluster --config kind_cluster.yaml</code></p>
+</li>
+<li>
+<p><code>kubectl get nodes</code> outputs:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> NAME                  STATUS   ROLES    AGE   VERSION
+ kind-control-plane    Ready    master   18s   v1.17.0
+ kind-control-plane2   Ready    master   17s   v1.17.0
+ kind-control-plane3   Ready    master   16s   v1.17.0
+ kind-worker           Ready    &lt;none&gt;   16s   v1.17.0
+ kind-worker2          Ready    &lt;none&gt;   16s   v1.17.0
+ kind-worker3          Ready    &lt;none&gt;   16s   v1.17.0
+</code></pre></div></li>
+</ol>
+<p>Now I have a multi-node k8s cluster.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+        <div><a href="https://phanama.github.io/LICENSE" type="text/html" rel="license">© 2020 Yudi A Phanama - CC-BY-SA 4.0</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>
