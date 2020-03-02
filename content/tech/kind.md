@@ -40,13 +40,13 @@ Installing kind and bringing up a cluster is easy (taken from the docs):
    `kind create cluster --config kind_cluster.yaml`
 4. `kubectl get nodes` outputs:
    ```shell
-    NAME                  STATUS   ROLES    AGE   VERSION
-    kind-control-plane    Ready    master   18s   v1.17.0
-    kind-control-plane2   Ready    master   17s   v1.17.0
-    kind-control-plane3   Ready    master   16s   v1.17.0
-    kind-worker           Ready    <none>   16s   v1.17.0
-    kind-worker2          Ready    <none>   16s   v1.17.0
-    kind-worker3          Ready    <none>   16s   v1.17.0
+    NAME                  STATUS   ROLES    AGE     VERSION
+    kind-control-plane    Ready    master   3m6s    v1.17.0
+    kind-control-plane2   Ready    master   2m34s   v1.17.0
+    kind-control-plane3   Ready    master   96s     v1.17.0
+    kind-worker2          Ready    <none>   70s     v1.17.0
+    kind-worker           Ready    <none>   70s     v1.17.0
+    kind-worker3          Ready    <none>   68s     v1.17.0
    ```
 
 Now I have a multi-node k8s cluster.
