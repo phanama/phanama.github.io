@@ -8,7 +8,7 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://phanama.github.io/tech/kind/" />
-
+<meta property="article:modified_time" content="2020-03-03T22:03:01+07:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="kind"/>
 <meta name="twitter:description" content="Playing with Kubernetes in Docker.
@@ -128,16 +128,91 @@ mv ./kind /some-dir-in-your-PATH/kind
 </li>
 <li>
 <p><code>kubectl get nodes</code> outputs:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> NAME                  STATUS   ROLES    AGE   VERSION
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> NAME                  STATUS   ROLES    AGE     VERSION
  kind-control-plane    Ready    master   3m6s    v1.17.0
  kind-control-plane2   Ready    master   2m34s   v1.17.0
  kind-control-plane3   Ready    master   96s     v1.17.0
- kind-worker           Ready    &lt;none&gt;   70s     v1.17.0
  kind-worker2          Ready    &lt;none&gt;   70s     v1.17.0
+ kind-worker           Ready    &lt;none&gt;   70s     v1.17.0
  kind-worker3          Ready    &lt;none&gt;   68s     v1.17.0
 </code></pre></div></li>
 </ol>
 <p>Now I have a multi-node k8s cluster.</p>
+<h2 id="tuning-the-cni">Tuning the CNI</h2>
+<p>Kind ships with a default CNI plugin <code>kindnetd</code>. We can <a href="https://kind.sigs.k8s.io/docs/user/configuration/#disable-default-cni">disable the default CNI plugin</a> to install other plugins. Here, we&rsquo;ll disable <code>kindnetd</code> and install Calico CNI.</p>
+<ol>
+<li>Add this to the configuration:
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"> <span style="color:#586e75">#kind.yaml</span>
+ <span style="color:#719e07">kind</span>: Cluster
+ <span style="color:#719e07">apiVersion</span>: kind.x-k8s.io/v1alpha4
+ <span style="color:#719e07">networking</span>:
+ <span style="color:#586e75"># the default CNI will not be installed</span>
+     <span style="color:#719e07">disableDefaultCNI</span>: <span style="color:#cb4b16">true</span>
+ ...
+</code></pre></div></li>
+<li>Create the cluster. <code>kind create cluster --config kind.yaml</code></li>
+<li>See that there&rsquo;s no <code>kindnetd</code> pods running. Coredns is pending because we don&rsquo;t have k8s networking setup yet.
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> $ kubectl get pods -n kube-system
+
+ NAME                                          READY   STATUS    RESTARTS   AGE
+ coredns-6955765f44-gmwb5                      0/1     Pending   <span style="color:#2aa198">0</span>          6m2s
+ coredns-6955765f44-sbcwb                      0/1     Pending   <span style="color:#2aa198">0</span>          6m2s
+ etcd-kind-control-plane                       1/1     Running   <span style="color:#2aa198">0</span>          6m14s
+ etcd-kind-control-plane2                      1/1     Running   <span style="color:#2aa198">0</span>          5m37s
+ etcd-kind-control-plane3                      1/1     Running   <span style="color:#2aa198">0</span>          4m42s
+ kube-apiserver-kind-control-plane             1/1     Running   <span style="color:#2aa198">0</span>          6m14s
+ kube-apiserver-kind-control-plane2            1/1     Running   <span style="color:#2aa198">0</span>          4m36s
+ kube-apiserver-kind-control-plane3            1/1     Running   <span style="color:#2aa198">1</span>          3m24s
+ kube-controller-manager-kind-control-plane    1/1     Running   <span style="color:#2aa198">1</span>          6m14s
+ kube-controller-manager-kind-control-plane2   1/1     Running   <span style="color:#2aa198">0</span>          4m16s
+ kube-controller-manager-kind-control-plane3   1/1     Running   <span style="color:#2aa198">0</span>          3m40s
+ kube-proxy-cczv4                              1/1     Running   <span style="color:#2aa198">0</span>          4m22s
+ kube-proxy-dnlz8                              1/1     Running   <span style="color:#2aa198">0</span>          4m22s
+ kube-proxy-h4tgr                              1/1     Running   <span style="color:#2aa198">0</span>          4m22s
+ kube-proxy-m7rdc                              1/1     Running   <span style="color:#2aa198">0</span>          6m2s
+ kube-proxy-mxzw8                              1/1     Running   <span style="color:#2aa198">0</span>          5m42s
+ kube-proxy-tx8n2                              1/1     Running   <span style="color:#2aa198">0</span>          4m42s
+ kube-scheduler-kind-control-plane             1/1     Running   <span style="color:#2aa198">1</span>          6m14s
+ kube-scheduler-kind-control-plane2            1/1     Running   <span style="color:#2aa198">0</span>          4m14s
+ kube-scheduler-kind-control-plane3            1/1     Running   <span style="color:#2aa198">0</span>          3m44s
+</code></pre></div></li>
+<li>We&rsquo;ll install calico:
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> $ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+    
+ <span style="color:#586e75">#wait for several minutes, or watch the pods in kube-system</span>
+
+ $ kubectl get pods -n kube-system
+ NAME                                          READY   STATUS    RESTARTS   AGE
+ calico-kube-controllers-75f6c789b6-pb2pd      1/1     Running   <span style="color:#2aa198">0</span>          9m13s
+ calico-node-5cxmq                             1/1     Running   <span style="color:#2aa198">0</span>          9m13s
+ calico-node-ct2fg                             1/1     Running   <span style="color:#2aa198">0</span>          9m13s
+ calico-node-hcj6j                             1/1     Running   <span style="color:#2aa198">0</span>          9m13s
+ calico-node-ldnxj                             1/1     Running   <span style="color:#2aa198">0</span>          9m13s
+ calico-node-rbpg9                             1/1     Running   <span style="color:#2aa198">0</span>          9m13s
+ calico-node-rxpzw                             1/1     Running   <span style="color:#2aa198">0</span>          9m13s
+ coredns-6955765f44-gmwb5                      1/1     Running   <span style="color:#2aa198">0</span>          17m
+ coredns-6955765f44-sbcwb                      1/1     Running   <span style="color:#2aa198">0</span>          17m
+ etcd-kind-control-plane                       1/1     Running   <span style="color:#2aa198">0</span>          17m
+ etcd-kind-control-plane2                      1/1     Running   <span style="color:#2aa198">0</span>          16m
+ etcd-kind-control-plane3                      1/1     Running   <span style="color:#2aa198">0</span>          16m
+ kube-apiserver-kind-control-plane             1/1     Running   <span style="color:#2aa198">0</span>          17m
+ kube-apiserver-kind-control-plane2            1/1     Running   <span style="color:#2aa198">0</span>          15m
+ kube-apiserver-kind-control-plane3            1/1     Running   <span style="color:#2aa198">1</span>          14m
+ kube-controller-manager-kind-control-plane    1/1     Running   <span style="color:#2aa198">1</span>          17m
+ kube-controller-manager-kind-control-plane2   1/1     Running   <span style="color:#2aa198">0</span>          15m
+ kube-controller-manager-kind-control-plane3   1/1     Running   <span style="color:#2aa198">0</span>          15m
+ kube-proxy-cczv4                              1/1     Running   <span style="color:#2aa198">0</span>          15m
+ kube-proxy-dnlz8                              1/1     Running   <span style="color:#2aa198">0</span>          15m
+ kube-proxy-h4tgr                              1/1     Running   <span style="color:#2aa198">0</span>          15m
+ kube-proxy-m7rdc                              1/1     Running   <span style="color:#2aa198">0</span>          17m
+ kube-proxy-mxzw8                              1/1     Running   <span style="color:#2aa198">0</span>          17m
+ kube-proxy-tx8n2                              1/1     Running   <span style="color:#2aa198">0</span>          16m
+ kube-scheduler-kind-control-plane             1/1     Running   <span style="color:#2aa198">1</span>          17m
+ kube-scheduler-kind-control-plane2            1/1     Running   <span style="color:#2aa198">0</span>          15m
+ kube-scheduler-kind-control-plane3            1/1     Running   <span style="color:#2aa198">0</span>          15m
+</code></pre></div></li>
+<li>Done!</li>
+</ol>
 
 		</div>
 
