@@ -72,5 +72,14 @@ About kubectl Mental model:
       <description>What&amp;rsquo;s life?  Combinations of natural atoms and molecules that somehow interact each other to form a set of functions to sustain themselves/keep themselves in the environment as long as possible.</description>
     </item>
     
+    <item>
+      <title>vSphere</title>
+      <link>https://phanama.github.io/tech/vsphere/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://phanama.github.io/tech/vsphere/</guid>
+      <description>I got to learn about Datacenter and Virtualization technology professionally when I started working @gojek vSphere is a cloud computing platform built on top of VMWare&amp;rsquo;s ESXi virtualization.</description>
+    </item>
+    
   </channel>
 </rss>

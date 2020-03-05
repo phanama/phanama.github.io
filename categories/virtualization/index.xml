@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>virtualization on YPhanama&#39;s Notes</title>
+    <link>https://phanama.github.io/categories/virtualization/</link>
+    <description>Recent content in virtualization on YPhanama&#39;s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2020 Yudi A Phanama - CC-BY-SA 4.0</copyright>
+    
+	<atom:link href="https://phanama.github.io/categories/virtualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vSphere</title>
+      <link>https://phanama.github.io/tech/vsphere/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://phanama.github.io/tech/vsphere/</guid>
+      <description>I got to learn about Datacenter and Virtualization technology professionally when I started working @gojek vSphere is a cloud computing platform built on top of VMWare&amp;rsquo;s ESXi virtualization.</description>
+    </item>
+    
+  </channel>
+</rss>

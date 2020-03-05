@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>vSphere - YPhanama&#39;s Notes</title><link rel="icon" type="image/png" href=https://phanama.github.io/images/Indonesiaball_with_kopiah.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="vSphere" />
+<meta property="og:description" content="All I&#39;ve learned about/from VMWare&#39;s vSphere.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://phanama.github.io/tech/vsphere/" />
+<meta property="article:modified_time" content="2020-03-05T20:20:49+07:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vSphere"/>
+<meta name="twitter:description" content="All I&#39;ve learned about/from VMWare&#39;s vSphere.
+"/>
+<link rel="stylesheet" type="text/css" media="screen" href="https://phanama.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://phanama.github.io/css/main.css" />
+
+	<script src="https://phanama.github.io/js/feather.min.js"></script>
+	
+	<script src="https://phanama.github.io/js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-142553815-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-142553815-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title">
+        <a href="https://phanama.github.io/"><div class="box"> 
+                <img src="https://phanama.github.io/images/Indonesiaball_with_kopiah.png" />
+            </div>YPhanama&#39;s Notes
+        </a>
+    </h1>
+	<div class="site-description"><h2>A Constant Learner</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/phanama" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/yphanama" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/notes">All Notes</a>
+			</li>
+			
+			<li>
+				<a href="/tech">Tech Stuff</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/categories">Categories</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+            <h1 class="title"><h1a>vSphere</h1a></h1>
+		</div>
+
+		<div class="markdown">
+			<ul>
+<li>I got to learn about Datacenter and Virtualization technology professionally when I started working @gojek</li>
+<li>vSphere is a cloud computing platform built on top of VMWare&rsquo;s ESXi virtualization.</li>
+<li>It connects to ESXi (bare metal) hosts and manages virtualized (VM) workloads on top of those hosts in a clustered manner.</li>
+<li>It provides many features to handle workloads:
+<ul>
+<li>Resource accounting (quota, limits, shares) of compute resources.</li>
+<li>High Availability
+<ul>
+<li>Can reschedule VMs to other ESXi host in case of failure.</li>
+<li>Fault tolerance -&gt; active-passive mechanism.</li>
+<li>vMotion -&gt; a cool feature which &ldquo;snapshots&rdquo; the VMs to its memory and scheduled CPU execution to other passive &ldquo;VM&rdquo; in other ESXi host.</li>
+</ul>
+</li>
+<li>Hot adding cpu/memory.</li>
+<li>Integration with VMWare&rsquo;s SDN platform, NSX-T.</li>
+</ul>
+</li>
+<li>The API is somewhat hard to use.
+<ul>
+<li>Probably intended, so users will seek for enterprise/professional support.</li>
+</ul>
+</li>
+</ul>
+<h2 id="extending-vm-disk-space">Extending VM Disk Space</h2>
+<p>Kinda like AWS EC2&rsquo;s EBS, we can extend the disk space of a VM in real-time without needing to reboot the machine. I used vSphere v6.5.
+Here&rsquo;s how:</p>
+<ol>
+<li>Right click on the VM, and choose &ldquo;Edit Settings&rdquo;</li>
+<li>In the &ldquo;Hard Disk&rdquo; item, just fill in the size we want the disk to have.</li>
+<li>Get into the machine&rsquo;s console, and find out which device is the Hard Disk; run:
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> $ df -h
+
+ <span style="color:#586e75"># in my case, I have /dev/sda2</span>
+ Filesystem      Size  Used Avail Use% Mounted on
+ ...
+ /dev/sda2        32G   20G   11G  65% /
+ ...
+
+ $ lsblk
+
+ NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+ ...
+ sda      8:0    <span style="color:#2aa198">0</span>  200G  <span style="color:#2aa198">0</span> disk
+ ├─sda1   8:1    <span style="color:#2aa198">0</span>    1M  <span style="color:#2aa198">0</span> part
+ └─sda2   8:2    <span style="color:#2aa198">0</span>  200G  <span style="color:#2aa198">0</span> part /
+ ...
+</code></pre></div></li>
+<li>We&rsquo;ll grow the partition /dev/sda2 to extend the partition&rsquo;s space, and extend the filesystem&rsquo;s space:
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> $ sudo growpart /dev/sda <span style="color:#2aa198">2</span>
+ CHANGED: <span style="color:#268bd2">partition</span><span style="color:#719e07">=</span><span style="color:#2aa198">2</span> <span style="color:#268bd2">start</span><span style="color:#719e07">=</span><span style="color:#2aa198">4096</span> old: <span style="color:#268bd2">size</span><span style="color:#719e07">=</span><span style="color:#2aa198">67104735</span> <span style="color:#268bd2">end</span><span style="color:#719e07">=</span><span style="color:#2aa198">67108831</span> new: <span style="color:#268bd2">size</span><span style="color:#719e07">=</span><span style="color:#2aa198">419426271</span> <span style="color:#268bd2">end</span><span style="color:#719e07">=</span><span style="color:#2aa198">419430367</span>
+
+ $ sudo resize2fs /dev/sda2
+ resize2fs 1.45.5 <span style="color:#719e07">(</span>07-Jan-2020<span style="color:#719e07">)</span>
+ Filesystem at /dev/sda2 is mounted on /; on-line resizing required
+ <span style="color:#268bd2">old_desc_blocks</span> <span style="color:#719e07">=</span> 4, <span style="color:#268bd2">new_desc_blocks</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">25</span>
+ The filesystem on /dev/sda2 is now <span style="color:#2aa198">52428283</span> <span style="color:#719e07">(</span>4k<span style="color:#719e07">)</span> blocks long
+</code></pre></div></li>
+<li>We have resized our partition. To confirm, run:
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> $ df -h
+ Filesystem      Size  Used Avail Use% Mounted on
+ ...
+ /dev/sda2       197G   20G  170G  11% /
+ ...
+</code></pre></div></li>
+<li>Done!</li>
+</ol>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+        <div><a href="https://phanama.github.io/LICENSE" type="text/html" rel="license">© 2020 Yudi A Phanama - CC-BY-SA 4.0</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>
